@@ -4,7 +4,8 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 // Load audio/video streams (for simplicity, assume files are stored in Google Cloud Storage)
-const gcs = require('@google-cloud/storage')({
+const { Storage } = require('@google-cloud/storage');
+const gcs = new Storage({
   projectId: 'your-project-id',
   keyFilename: './path/to/credentials.json'
 });
